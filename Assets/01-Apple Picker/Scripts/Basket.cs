@@ -48,6 +48,8 @@ public class Basket : MonoBehaviour
             // Add points for catching an apple
             score += 100;
             scoreGT.text = score.ToString();
+            if (score > HighScore.score)
+                HighScore.score = score;
         }
     }
 }
