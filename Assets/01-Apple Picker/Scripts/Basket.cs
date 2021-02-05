@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Basket : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class Basket : MonoBehaviour
     {
         // Find what hits the basket
         GameObject collidedWith = coll.gameObject;
-        if(collidedWith.tag == "Apple")
+        if (collidedWith.tag == "Apple")
         {
             Destroy(collidedWith);
 
