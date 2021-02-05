@@ -48,7 +48,7 @@ public class AppleTree : MonoBehaviour
             speed = -Mathf.Abs(speed); // Moves left
         }
     }
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         // Changes Directions Randomly
         if (Random.value < chanceToChangeDirections)

@@ -19,12 +19,13 @@ public class HighScore : MonoBehaviour
         {
             score = PlayerPrefs.GetInt("ApplePickerHighScore");
         }
+        PlayerPrefs.SetInt("ApplePickerHighScore", score);
     }
 
     void Update()
     {
         Text scoreGT = this.GetComponent<Text>();
-        scoreGT.text = "High Score: " + score;
+        scoreGT.text = "High Score: "+score;
         if(score > PlayerPrefs.GetInt("ApplePickerHighScore"))
         {
             PlayerPrefs.SetInt("ApplePickerHighScore", score);
