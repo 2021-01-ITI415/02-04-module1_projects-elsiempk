@@ -786,9 +786,9 @@ GameObject:
   m_Component:
   - component: {fileID: 792234108}
   - component: {fileID: 792234107}
-  - component: {fileID: 792234106}
   - component: {fileID: 792234109}
   - component: {fileID: 792234110}
+  - component: {fileID: 792234106}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -796,14 +796,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &792234106
-AudioListener:
+--- !u!114 &792234106
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792234105}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea1e218981e3f24b84927b2bd96729d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numClouds: 40
+  cloudPrefab: {fileID: 944865970208163926, guid: b1bd7c3f08193bd4a956b69476bb056f, type: 3}
+  cloudPosMin: {x: -50, y: -5, z: 10}
+  cloudPosMax: {x: 150, y: 100, z: 10}
+  cloudScaleMin: 1
+  cloudScaleMax: 3
+  cloudSpeedMult: 0.5
 --- !u!20 &792234107
 Camera:
   m_ObjectHideFlags: 0
@@ -885,16 +896,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 792234105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea1e218981e3f24b84927b2bd96729d, type: 3}
+  m_Script: {fileID: 11500000, guid: e5167de0f66808248b5ada5e48575f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numClouds: 40
-  cloudPrefab: {fileID: 944865970208163926, guid: b1bd7c3f08193bd4a956b69476bb056f, type: 3}
-  cloudPosMin: {x: -50, y: -5, z: 10}
-  cloudPosMax: {x: 150, y: 100, z: 10}
-  cloudScaleMin: 1
-  cloudScaleMax: 3
-  cloudSpeedMult: 0.5
+  easing: 0.05
+  minXY: {x: 0, y: 0}
+  camZ: 0
+--- !u!1 &826204309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3621371116979198799, guid: c7578e868805ce645b7ab6123e93551c, type: 3}
+  m_PrefabInstance: {fileID: 2657017204496030430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &826204313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826204309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abddf86c1f64b497ba244d8f32800ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &885665070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,12 +1259,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507532413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df19ec24857b09e448460f8108e3f61b, type: 3}
+  m_Script: {fileID: 11500000, guid: 20fce14e799892141852e8556fb4a195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 4731495235566159911, guid: bbe53ea178161c3499919915c03bfa67, type: 3}
   velocityMult: 10
-  launchPoint: {fileID: 14545841}
+  launchPoint: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
   aimingMode: 0
@@ -2098,7 +2122,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6289352505598363446, guid: c7578e868805ce645b7ab6123e93551c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c7578e868805ce645b7ab6123e93551c, type: 3}
 --- !u!4 &2657017204496030431 stripped
 Transform:
