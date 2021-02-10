@@ -22,10 +22,34 @@ public float camZ;
     void FixedUpdate()
     {
     // if there's only one line following an if, it doesn't need braces
-    if (POI == null) return;
+   // if (POI == null) return;
 
     // get the position of the poi
-    Vector3 destination = POI.transform.position;
+   // Vector3 destination = POI.transform.position;
+
+    Vector3 destination;
+    // if there is no poi, return to p:[0, 0, 0]
+    if(POI == null)
+        {
+            destination = Vector3.zero;
+        }else
+        {
+            // get the position of the poi
+            destination = POI.transform.position;
+            // if poi is a projectile, check to see if it's at rest
+            if(POI.tag == "Projectile")
+            {
+                // if it is sleeping(not moving)
+                if(POI.GetComponent<Rigidbody>().IsSleeping())
+                {
+                    // return to default view
+                    POI = null;
+                    // in the next update
+                    return;
+                }
+            }
+        }
+
         // limit the x and y to minimum values
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y);
