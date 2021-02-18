@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    public static float bottomY = 0.5f;
+    public static float bottomY = 0.6f;
     // Start is called before the first frame update
     void Start()
     {

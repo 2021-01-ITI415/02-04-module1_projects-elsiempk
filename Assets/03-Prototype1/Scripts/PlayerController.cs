@@ -30,6 +30,17 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
+    void OnCollisionEnter(Collision coll)
+    {
+        // find how what hit player
+        GameObject collidedWith = coll.gameObject;
+        if(collidedWith.tag == "Missile")
+        {
+            Destroy(collidedWith);
+        }
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pick Up"))
