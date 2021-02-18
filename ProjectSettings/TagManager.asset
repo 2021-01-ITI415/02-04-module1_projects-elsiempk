@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Pick Up
   - Missile
+  - Ship
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - AppleTree
   - Apple
   - Basket
-  - 
-  - 
+  - Ship
+  - Missile
   - 
   - 
   - 

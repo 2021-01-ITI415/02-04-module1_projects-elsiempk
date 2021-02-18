@@ -5,26 +5,55 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     [Header("Set in Inspector")]
-    // prefab for instantiating apples
-    public GameObject MissilePrefab;
 
-    // speed at which the ship moves
+    // Prefab for instantiating missiles
+    public GameObject missilePrefab;
+
+    // Speed at which the ship moves
     public float speed = 1f;
 
-    // distance where ship turns around
+    // Distance where ship turns around
+    public float leftAndRightEdge = 20f;
+
+    // Chance that the ship will change di
     public float chanceToChangeDirections = 0.1f;
 
-    // rate at which missiles will be instantiated
+    // Rate at which missiles will be instantiated
     public float secondsBetweenMissileDrops = 1f;
 
+    // Start is called before the first frame update
     void Start()
     {
-        // dropping missiles every second
+        // Dropping missiles every second
+        InvokeRepeating("DropMissile", 2f, secondsBetweenMissileDrops);
     }
-
-    void Update()
+    void DropMissile()
     {
-        // basic movement
-        // changing direction
+        GameObject missile = Instantiate(missilePrefab) as GameObject;
+        missile.transform.position = transform.position;
+    }
+        // Update is called once per frame
+        void Update()
+    {
+        // Movements and direction changes
+        Vector3 pos = transform.position;
+        pos.x += speed * Time.deltaTime;
+        transform.position = pos;
+        if (pos.x < -leftAndRightEdge)
+        {
+            speed = Mathf.Abs(speed); // Moves right
+        }
+        else if (pos.x > leftAndRightEdge)
+        {
+            speed = -Mathf.Abs(speed); // Moves left
+        }
+    }
+    void FixedUpdate()
+    {
+        // Changes Directions Randomly
+        if (Random.value < chanceToChangeDirections)
+        {
+            speed *= -1; // Changes Directions
+        }
     }
 }
