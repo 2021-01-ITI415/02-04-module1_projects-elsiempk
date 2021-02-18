@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header ("Set Dynamically")]
+
     public float speed;
     public Text countText;
     public Text winText;
 
-    private Rigidbody rb;
-    private int count;
+    public Rigidbody rb;
+    public int count;
 
     void Start()
     {
@@ -37,6 +39,16 @@ public class PlayerController : MonoBehaviour
         if(collidedWith.tag == "Missile")
         {
             Destroy(collidedWith);
+
+            count = count - 1;
+            SetCountText();
+
+            // parse text of score board
+           // int score = int.Parse(countText.text);
+            // minus points for collision with missile
+            //score -= 1;
+            // convert score back to a string a display
+           // countText.text = score.ToString();
         }
     }
 
@@ -54,7 +66,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 12)
+        if (count >= 10)
         {
             winText.text = "You Win!";
         }
