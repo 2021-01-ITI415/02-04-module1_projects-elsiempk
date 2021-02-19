@@ -5,15 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header ("Set Dynamically")]
-
-    public float speed;
+    public float speed = 1.0f;
     public Text countText;
     public Text winText;
-    
 
-    public Rigidbody rb;
-    public int count;
+    private Rigidbody rb;
+    private int count;
 
     void Start()
     {
@@ -37,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         // find how what hit player
         GameObject collidedWith = coll.gameObject;
-        if(collidedWith.tag == "Missile")
+        if (collidedWith.tag == "Missile")
         {
             Destroy(collidedWith);
 
@@ -45,14 +42,13 @@ public class PlayerController : MonoBehaviour
             SetCountText();
 
             // parse text of score board
-           // int score = int.Parse(countText.text);
+            // int score = int.Parse(countText.text);
             // minus points for collision with missile
             //score -= 1;
             // convert score back to a string a display
-           // countText.text = score.ToString();
+            // countText.text = score.ToString();
         }
     }
-
 
     void OnTriggerEnter(Collider other)
     {
@@ -67,7 +63,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 10)
+        if (count >= 9)
         {
             winText.text = "You Win!";
         }
