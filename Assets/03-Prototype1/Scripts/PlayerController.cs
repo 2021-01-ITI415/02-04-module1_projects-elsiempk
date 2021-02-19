@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Text countText;
     public Text winText;
 
+    public GameObject clickHalo;
+
     private Rigidbody rb;
     private int count;
 
@@ -28,6 +30,21 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
+    }
+
+    void Awake()
+    {
+        Transform clickHaloTrans = transform.Find("ClickHalo");
+        clickHalo = clickHalo.gameObject;
+        clickHalo.SetActive(false);
+    }
+    void OnMouseEnter()
+    {
+        clickHalo.SetActive(true);
+    }
+    void OnMouseExit()
+    {
+        clickHalo.SetActive(false);
     }
 
     void OnCollisionEnter(Collision coll)
